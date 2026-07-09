@@ -18,7 +18,9 @@ const Register = ({setIsLoggedIn, setActiveComponent}) => {
     const onSumitHeandler = async(e) => {
         e.preventDefault()
         try {
-           const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/register`, formData)
+           const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/register`, formData, 
+            { withCredentials: true
+          })
            console.log("User registered successfully.", res.data)
            alert("User registered successfully")
            setIsLoggedIn(true)
