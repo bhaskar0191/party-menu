@@ -11,8 +11,13 @@ dotenv.config()
 const app = express();
 
 app.use(cookieParser());
+
+const allowedOrigins = [
+  "https://leads-frontend-iota.vercel.app",  // your deployed frontend
+  "http://localhost:5173",                // for local dev
+];
 app.use(cors({
-    origin: "http://localhost:5173", 
+    origin: allowedOrigins, 
     credentials:true
 }));
 app.use(express.json());
