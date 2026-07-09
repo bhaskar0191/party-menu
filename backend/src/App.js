@@ -27,10 +27,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:true}))
 
-app.listen(process.env.PORT, () =>{
-    console.log(`server connect at  ${process.env.PORT}`)
-})
+//app.listen(process.env.PORT, () =>{
+    //console.log(`server connect at  ${process.env.PORT}`)
+//})
 
+app.get("/", (req, res) => {
+    res.send("server is conncet")
+})
 connectDB()
 
 app.use('/user', UserRouter);
