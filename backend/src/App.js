@@ -1,6 +1,5 @@
 import express from 'express'
 import cors from 'cors';
-import nodemon from 'nodemon'
 import cookieParser from 'cookie-parser'
 import {connectDB} from './config/DB.js'
 import bodyParser from 'body-parser';
