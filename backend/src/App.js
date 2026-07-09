@@ -37,3 +37,5 @@ app.get("/", (req, res) => {
 connectDB()
 
 app.use('/user', UserRouter);
+
+export default app;
