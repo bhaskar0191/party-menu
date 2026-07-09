@@ -6,7 +6,7 @@ const Logout = ({setIsLoggedIn, setActiveComponent}) => {
 
     const heandleLogout = async () => {
         try {
-            const res = await axios.post("http://localhost:5000/user/logout", {}, {
+            const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/logout`, {}, {
                 withCredentials: true
             })
             if(res.status === 200){
