@@ -13,7 +13,7 @@ const app = express();
 app.use(cookieParser());
 
 const allowedOrigins = [
-  "https://party-menu-lcly.vercel.app",  // your deployed frontend
+  "https://party-menu-wpms.vercel.app",  // your deployed frontend
   "http://localhost:5173",                // for local dev
 ];
 app.use(cors({
