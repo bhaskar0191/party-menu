@@ -16,7 +16,7 @@ const Login = ({setLoggedIn, setActiveComponent, setUser}) => {
     const submitHeandler = async (e) =>{
         e.preventDefault()
         try {
-            const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/login`, formData, {
+            const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/user/login`, formData, {
                 withCredentials:true
             })
             localStorage.setItem("token", res.data.token);
