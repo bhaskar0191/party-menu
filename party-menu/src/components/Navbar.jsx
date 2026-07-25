@@ -35,51 +35,66 @@ const Navbar = ({setMeals, setActiveComponent, setIsLoggedIn, isLoggedIn, user})
   
 
   return (
-    <nav className=" bg-gray-900 text-black flex items-center justify-between h-25 cursor-pointer">
-        <h1 
-          className="text-2xl font-bold text-pink-400 hover:text-blue-500"
-          onClick={() => setActiveComponent("login")}>
-            <span className='text-green-300 text-5xl mr-2  hover:text-amber-300'>SB's</span>Restaurant </h1>
-            {!isLoggedIn ? (
-                 <div className="flex gap-4 mt-2">
-            <a 
-                onClick={() => setActiveComponent("login")}
-                className="text-white font-bold underline hover:text-pink-500 ml-4"
-            >
-                login
-            </a>
-            <a 
-               onClick={() => setActiveComponent("register")}
-                className="text-white font-bold underline hover:text-pink-500 ml-4"
-            >
-                signup
-            </a>
-        </div>
-            ) : (
-              <>
-              <div>
-                <input type="text" 
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                  className='border border-white text-white' 
-                  placeholder='Enter the Menu'
-                />
-               <button 
-                 onClick={handleSearch}
-                 className='hover:bg-green-600 px-3 py-1 rounded text-white'
-                >
-                 Search
-                </button>
-            </div>
-              <span className="font-bold text-xl mr-4 capitalize border-2 border-gray-300 rounded-full w-10 h-10 flex items-center justify-center bg-gray-200 text-gray-800">
-                 {user?.name ? user.name.charAt(0).toUpperCase() : "Profile"}
-              </span>
-              <Logout 
-                setIsLoggedIn={setIsLoggedIn} 
-                setActiveComponent={setActiveComponent} />
-            </>
-        )} 
-    </nav>
+    <nav className="bg-gray-900 text-white flex items-center justify-between px-6 py-4 h-20">
+  {/* Logo / Title */}
+  <h1 
+    className="text-2xl font-bold flex items-center cursor-pointer hover:text-blue-500"
+    onClick={() => setActiveComponent("login")}
+  >
+    <span className="text-green-300 text-5xl mr-2 hover:text-amber-300">SB's</span>
+    Restaurant
+  </h1>
+
+  {/* Conditional Rendering */}
+  {!isLoggedIn ? (
+    // Login & Signup Links
+    <div className="flex gap-6">
+      <button 
+        onClick={() => setActiveComponent("login")}
+        className="text-white font-bold underline hover:text-pink-500"
+      >
+        Login
+      </button>
+      <button 
+        onClick={() => setActiveComponent("register")}
+        className="text-white font-bold underline hover:text-pink-500"
+      >
+        Signup
+      </button>
+    </div>
+  ) : (
+    <>
+      {/* Search Bar */}
+      <div className="flex items-center gap-2">
+        <input 
+          type="text" 
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="border border-white bg-transparent text-white px-2 py-1 rounded"
+          placeholder="Enter the Menu"
+        />
+        <button 
+          onClick={handleSearch}
+          className="bg-pink-500 hover:bg-green-600 px-3 py-1 rounded text-white font-semibold"
+        >
+          Search
+        </button>
+      </div>
+
+      {/* User Profile */}
+      <span className="font-bold text-xl ml-6 capitalize border-2 border-gray-300 rounded-full w-10 h-10 flex items-center justify-center bg-gray-200 text-gray-800">
+        {user?.name ? user.name.charAt(0).toUpperCase() : "P"}
+      </span>
+
+      {/* Logout Component */}
+      <Logout 
+        setIsLoggedIn={setIsLoggedIn} 
+        setActiveComponent={setActiveComponent} 
+      />
+    </>
+  )}
+</nav>
+
   )
 }
 
