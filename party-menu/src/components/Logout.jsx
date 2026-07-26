@@ -13,10 +13,10 @@ const Logout = ({setIsLoggedIn, setActiveComponent}) => {
                 localStorage.removeItem('token')
                 setActiveComponent('home')
                 setIsLoggedIn(false)
-                alert(res.data.message)
+                alert(res.data.message || "Logout Successful")
             }else {
                console.log("")
-               alert("Logout Failed")
+               alert("Logout Failed Please try again.")
             }
         }
         catch(err){
