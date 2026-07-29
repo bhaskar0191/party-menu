@@ -2,7 +2,7 @@ import React from 'react';
 
 const Order = ({ meal, onBack, onConfirm }) => {
   return (
-    <section className="flex flex-col p-8 border rounded-xl not-[]:bg-gradient-to-br from-amber-100 to-yellow-50 items-center justify-center max-w-lg mx-auto shadow-lg">
+    <section className="flex flex-col p-8 border rounded-xl bg-gradient-to-br from-amber-100 to-yellow-50 items-center justify-center max-w-lg mx-auto shadow-lg">
       {/* Title */}
       <h2 className="text-3xl font-extrabold mb-6 text-gray-800">
         🛒 Order: <span className="text-green-700">{meal.strMeal}</span>
@@ -28,7 +28,7 @@ const Order = ({ meal, onBack, onConfirm }) => {
       {/* Action Buttons */}
       <div className="flex gap-6">
         <button
-          className="not-[]:bg-gradient-to-r from-pink-500 to-red-500 text-white font-semibold px-6 py-2 rounded-lg shadow hover:from-pink-600 hover:to-red-600 transition-transform transform hover:scale-105"
+          className="bg-gradient-to-r from-pink-500 to-red-500 text-white font-semibold px-6 py-2 rounded-lg shadow hover:from-pink-600 hover:to-red-600 transition-transform transform hover:scale-105"
           onClick={onConfirm}
         >
           ✅ Confirm Order
