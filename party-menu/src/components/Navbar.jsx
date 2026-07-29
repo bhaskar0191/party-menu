@@ -41,7 +41,7 @@ const Navbar = ({ setMeals, setActiveComponent, setIsLoggedIn, isLoggedIn, user 
   };
 
   return (
-    <nav className="bg-gradient-to-r from-gray-900 via-gray-800 to-black text-white flex items-center justify-between px-6 py-4 shadow-lg sticky top-0 z-50">
+    <nav className=" not-[]:bg-gradient-to-r from-gray-900 via-gray-800 to-black text-white flex items-center justify-between px-6 py-4 shadow-lg sticky top-0 z-50">
       {/* Logo / Title */}
       <h1
         className="text-2xl md:text-3xl font-extrabold flex items-center cursor-pointer hover:text-amber-400 transition-colors"

@@ -10,7 +10,7 @@ const Ingredients = ({ meal, onBack }) => {
   }).filter(Boolean);
 
   return (
-    <section className="flex flex-col p-6 border rounded-lg bg-gradient-to-br from-amber-100 to-yellow-50 shadow-lg max-h-screen overflow-y-auto">
+    <section className="flex flex-col p-6 border rounded-lg not-[]:bg-gradient-to-br from-amber-100 to-yellow-50 shadow-lg max-h-screen overflow-y-auto">
       {/* Title */}
       <h2 className="text-3xl font-extrabold mb-6 text-gray-800">
         🍽 Ingredients for: <span className="text-green-700">{meal.strMeal}</span>
