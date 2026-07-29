@@ -8,7 +8,7 @@ const Navbar = ({ setMeals, setActiveComponent, setIsLoggedIn, isLoggedIn, user 
   const [search, setSearch] = useState("");
   const [debouncedSearch, setDebouncedSearch] = useState("");
 
-  // Debounce search input (wait 500ms before triggering API)
+  // Debounce search input (500ms)
   useEffect(() => {
     const handler = setTimeout(() => {
       setDebouncedSearch(search.trim());
@@ -41,13 +41,15 @@ const Navbar = ({ setMeals, setActiveComponent, setIsLoggedIn, isLoggedIn, user 
   };
 
   return (
-    <nav className="bg-gray-900 text-white flex items-center justify-between px-6 py-4 h-20">
+    <nav className="bg-gradient-to-r from-gray-900 via-gray-800 to-black text-white flex items-center justify-between px-6 py-4 shadow-lg sticky top-0 z-50">
       {/* Logo / Title */}
       <h1
-        className="text-2xl font-bold flex items-center cursor-pointer hover:text-blue-500"
+        className="text-2xl md:text-3xl font-extrabold flex items-center cursor-pointer hover:text-amber-400 transition-colors"
         onClick={() => setActiveComponent("login")}
       >
-        <span className="text-green-300 text-5xl mr-2 hover:text-amber-300">SB's</span>
+        <span className="text-green-400 text-5xl mr-2 hover:text-pink-400 transition-transform transform hover:scale-110">
+          SB's
+        </span>
         Restaurant
       </h1>
 
@@ -56,45 +58,45 @@ const Navbar = ({ setMeals, setActiveComponent, setIsLoggedIn, isLoggedIn, user 
         <div className="flex gap-6">
           <button
             onClick={() => setActiveComponent("login")}
-            className="text-white font-bold underline hover:text-pink-500"
+            className="text-white font-bold underline hover:text-pink-400 transition"
           >
             Login
           </button>
           <button
             onClick={() => setActiveComponent("register")}
-            className="text-white font-bold underline hover:text-pink-500"
+            className="text-white font-bold underline hover:text-pink-400 transition"
           >
             Signup
           </button>
         </div>
       ) : (
-        <>
+        <div className="flex items-center gap-6">
           {/* Search Bar */}
           <form onSubmit={handleSearch} className="flex items-center gap-2">
             <input
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="border border-white bg-transparent text-white px-2 py-1 rounded"
-              placeholder="Enter the Menu"
+              className="border border-gray-400 bg-transparent text-white px-3 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400 transition"
+              placeholder="Search menu..."
               aria-label="Search meals"
             />
             <button
               type="submit"
-              className="bg-pink-500 hover:bg-green-600 px-3 py-1 rounded text-white font-semibold"
+              className="bg-pink-500 hover:bg-green-600 px-4 py-2 rounded-lg text-white font-semibold shadow transition-transform transform hover:scale-105"
             >
               Search
             </button>
           </form>
 
           {/* User Profile */}
-          <span className="font-bold text-xl ml-6 capitalize border-2 border-gray-300 rounded-full w-10 h-10 flex items-center justify-center bg-gray-200 text-gray-800">
+          <span className="font-bold text-xl capitalize border-2 border-gray-300 rounded-full w-12 h-12 flex items-center justify-center bg-gray-200 text-gray-800 shadow-md">
             {user?.name ? user.name.charAt(0).toUpperCase() : "P"}
           </span>
 
           {/* Logout Component */}
           <Logout setIsLoggedIn={setIsLoggedIn} setActiveComponent={setActiveComponent} />
-        </>
+        </div>
       )}
     </nav>
   );
